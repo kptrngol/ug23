@@ -4,7 +4,7 @@
 void greet(void);
 int main(){
     greet();
-    exit;
+    exit(EXIT_SUCCESS);;
 }
 void greet(void) {
     printf("Hello, World!\n");
