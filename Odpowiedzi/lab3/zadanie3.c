@@ -17,7 +17,7 @@ int main() {
     scanf("%d %d",&a, &b);
     c = compareNumbers(a,b);
     x = showGreater(a,b);
-    printf("%s\n%d",c, x);
+    printf("%s\n%d\n",c, x);
     exit(EXIT_SUCCESS);
 }
 char* compareNumbers(int a, int b){
