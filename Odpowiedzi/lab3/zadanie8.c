@@ -7,9 +7,10 @@
 // int yearType();
 // int monthType();
 int dataValidation(int m1,int d1,int m2,int d2);
-int compareDates(int y1,int m1,int d1,int y2,int m2,int d2);
+void compareDates(int y1,int m1,int d1,int y2,int m2,int d2, int *ar);
 int main() 
 {
+    int result[3];
     int y1,m1,d1,y2,m2,d2;
     printf("Please, input two day, month and year sets to compare\n");
     do 
@@ -34,7 +35,12 @@ int main()
                 
         
     } while(!(dataValidation(m1, d1, m2, d2)));
-    printf("%d %d %d %d %d %d\n",y1,m1,d1,y2,m2,d2);
+    compareDates(y1,m1,d1,y2,m2,d2,result);
+
+    printf("The difference between years is: %d\n",result[0]);
+    printf("The difference between months is: %d\n",result[1]);
+    printf("The difference between days is: %d\n",result[2]);
+
     exit(EXIT_SUCCESS);
 
 }
@@ -50,7 +56,7 @@ int dataValidation(int m1,int d1,int m2,int d2)
             return 1;
         } else 
         {
-            printf("Please provide a correct day value aligned with its range (%d, %d)\n", d1, d2);
+            printf("Please provide a correct day value aligned with its range");
             return 0;
         }
     }
@@ -75,7 +81,15 @@ int dataValidation(int m1,int d1,int m2,int d2)
         return 0;
     };
 }
-// int compareDates(int y1,int m1,int d1,int y2,int m2,int d2)
-// {
 
-// }
+void compareDates(int y1,int m1,int d1,int y2,int m2,int d2, int *ar)
+{
+    int yd, md, dd;
+    yd = y1 - y2;
+    md = m1 - m2;
+    dd = d1 - d2;
+
+    ar[0] = yd;
+    ar[1] = md;
+    ar[2] = dd;
+}
