@@ -24,7 +24,7 @@ int main()
     // Calculate the difference between x aixs and y axis points 
     calcXYDif(a, b, &xD, &yD, &area, &perimeter);
 
-    printf("Area: %d, Permiter: %d)\n",area, perimeter);
+    printf("Area: %d, Perimeter: %d)\n",area, perimeter);
     // Calculate an area and a perimeter of the rectangle 
 
     exit(EXIT_SUCCESS);
@@ -55,6 +55,11 @@ void calcXYDif (int *pointA,int *pointB, int *xDif, int *yDif,int *a,int *p)
     *xDif = abs(pointA[0] - pointB[0]);
     *yDif = abs(pointA[1] - pointB[1]);
     *a = (*xDif) * (*yDif);
-    *p = 2 * (*xDif + *yDif);
-
+    if (*a > 0) 
+    {
+        *p = 2 * (*xDif + *yDif);
+    } else 
+    {
+        *p = 0;
+    }
 }
